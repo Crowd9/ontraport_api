@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     ontraport_api (0.3.1)
-      httparty (~> 0.13)
+      httparty (~> 0.24)
 
 GEM
   remote: https://rubygems.org/
