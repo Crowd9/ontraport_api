@@ -3,6 +3,7 @@ PATH
   specs:
     ontraport_api (0.3.1)
       httparty (~> 0.24)
+      ostruct
 
 GEM
   remote: https://rubygems.org/
@@ -14,9 +15,10 @@ GEM
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     mini_mime (1.1.5)
-    minitest (5.18.1)
+    minitest (5.27.0)
     multi_xml (0.8.0)
       bigdecimal (>= 3.1, < 5)
+    ostruct (0.6.3)
     rake (12.3.3)
 
 PLATFORMS
@@ -29,4 +31,4 @@ DEPENDENCIES
   rake (~> 12.3.3)
 
 BUNDLED WITH
-   2.1.4
+   2.7.2
