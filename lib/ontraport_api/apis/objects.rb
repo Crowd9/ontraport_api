@@ -1,23 +1,16 @@
 module OntraportApi
   module APIs
     module Objects
-      OBJECTS_API_METHODS_AND_PATHS = {
-        'get_object'                 => [:get,     '/object'],
-        'new_object'                 => [:post,    '/objects'],
-        'update_object'              => [:put,     '/objects'],
-        'get_objects'                => [:get,     '/objects']
-      }
-
       def get_object(id, object_id)
-        query_objects({id: id}, object_id)
+        query_objects(:get, '/object', {id: id}, object_id)
       end
 
       def new_object(payload = {}, object_id)
-        query_objects(payload, object_id)
+        query_objects(:post, '/objects', payload, object_id)
       end
 
       def update_object(id, payload = {}, object_id)
-        query_objects(payload.merge(id: id), object_id)
+        query_objects(:put, '/objects', payload.merge(id: id), object_id)
       end
 
       def get_objects(conditions = {}, object_id)
@@ -28,11 +21,10 @@ module OntraportApi
           searchNotes: 'true'
         }
         payload = default_conditions.merge(conditions)
-        query_objects(payload, object_id)
+        query_objects(:get, '/objects', payload, object_id)
       end
 
-      def query_objects(payload, object_id)
-        method, path = OBJECTS_API_METHODS_AND_PATHS[caller[0][/`.*'/][1..-2]]
+      def query_objects(method, path, payload, object_id)
         query(method, path, payload.merge({ objectID: object_id }))
       end
 
